@@ -39,7 +39,6 @@ function LocationForm() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Tutaj można przetworzyć dane z formularza, na przykład wysłać je na serwer
         addNewLocationToAPI();
         console.log(formData);
         router.push('/Locations');
@@ -71,15 +70,17 @@ function LocationForm() {
                 height={37}
                 priority
             />
+            <button type='button' className="px-4 py-2 bg-cyan-500 text-white rounded"
+                onClick={() => router.push('/Locations')}>List of locations
+            </button>
 
             <div className="max-w-md w-full bg-white p-6 rounded-md shadow-md">
-                //error message
                 {error && <p>{error}</p>}
                 <h2 className="text-center text-2xl font-bold text-cyan-600 drop-shadow-[0_0_0.3rem_#ffffff70]">Dodaj lokalizację</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-                            Nazwa
+                            Title
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -93,7 +94,7 @@ function LocationForm() {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
-                            Miasto
+                            City
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -107,7 +108,7 @@ function LocationForm() {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="country">
-                            Kraj
+                            Country
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -121,7 +122,7 @@ function LocationForm() {
                     </div>
                     <div className='mb-4'>
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
-                            Opis
+                            Description
                         </label>
                         <textarea
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
@@ -134,7 +135,7 @@ function LocationForm() {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="latitude">
-                            Szerokość geograficzna
+                            Latitude
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -148,7 +149,7 @@ function LocationForm() {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="longitude">
-                            Długość geograficzna
+                            Longitude
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -173,7 +174,7 @@ function LocationForm() {
                     )}
                     <div className="flex items-center justify-between">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                            Zapisz
+                            Save
                         </button>
                     </div>
                 </form>
