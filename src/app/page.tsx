@@ -20,7 +20,6 @@ export default function Home() {
           height={37}
           priority
         />
-        <AdminForm />
       </div>
     </main>
   )

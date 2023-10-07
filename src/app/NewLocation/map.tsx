@@ -22,7 +22,26 @@ function MapComponent({ onMarkerDragEnd }: MapComponentProps) {
         libraries,
     });
 
+    const mapOptions: google.maps.MapOptions = {
+        disableDefaultUI: true,
+        zoomControl: true,
+        draggableCursor: "crosshair",
+    };
+
     const [marker, setMarker] = React.useState(center);
+
+    const handleMapClick = (e: google.maps.KmlMouseEvent) => {
+        if (e.latLng) {
+            const lat = e.latLng.lat();
+            const lng = e.latLng.lng();
+
+            // Aktualizacja położenia znacznika na mapie
+            setMarker({ lat, lng });
+
+            // Wywołanie funkcji przekazanej w propsach, jeśli chcesz przekazać koordynaty na zewnątrz komponentu
+            onMarkerDragEnd({ lat, lng });
+        }
+    };
 
     const handleDragEnd = (e: google.maps.KmlMouseEvent) => {
         if (e.latLng) {
@@ -41,8 +60,11 @@ function MapComponent({ onMarkerDragEnd }: MapComponentProps) {
             mapContainerStyle={mapContainerStyle}
             zoom={10}
             center={center}
+            onClick={handleMapClick} // Obsługa kliknięcia na mapę
+            options={mapOptions}
         >
             <Marker position={marker} draggable={true} onDragEnd={(e: google.maps.MapMouseEvent) => handleDragEnd(e)} />
+
         </GoogleMap>
     );
 
