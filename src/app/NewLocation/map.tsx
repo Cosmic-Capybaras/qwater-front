@@ -26,6 +26,8 @@ function MapComponent({ onMarkerDragEnd }: MapComponentProps) {
         disableDefaultUI: true,
         zoomControl: true,
         draggableCursor: "crosshair",
+        streetViewControl: false,
+        gestureHandling: "greedy",
     };
 
     const [marker, setMarker] = React.useState(center);
