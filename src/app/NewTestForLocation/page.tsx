@@ -24,7 +24,7 @@ function NewTestForLocation() {
 
     interface DataTypeValue {
         data_type: number;
-        value: number;
+        value: number | null;
     }
 
     interface Type {
