@@ -194,7 +194,6 @@ function NewTestForLocation() {
                                 name={type.name}
                                 id={type.name}
                                 onChange={handleChange}
-                                required
                             />
                         </div>
                     ))}
