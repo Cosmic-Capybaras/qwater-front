@@ -37,6 +37,10 @@ const Locations = () => {
         router.push(`/NewTestForLocation?locationID=${locationID}`);
     };
 
+    const openNewCardInGoogleMaps = (long: number, lati: number) => {
+        window.open(`https://www.google.com/maps/place/${lati},${long}`, '_blank');
+    };
+
     return (
         <div className="relative min-h-screen bg-gray-800 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <button type='button' className="absolute top-0 right-0 m-4 px-4 py-2 bg-emerald-500 text-white rounded"
@@ -71,11 +75,16 @@ const Locations = () => {
                                 <p><strong>Country:</strong> {location.country}</p>
                                 <p><strong>Longitude:</strong> {location.longitude}</p>
                                 <p><strong>Latitude:</strong> {location.latitude}</p>
-                                <button type='button' className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+                                <button type='button' className="mt-2 px-4 py-2 bg-green-500 text-white rounded
+                                    hover:bg-green-700 " onClick={async () => await openNewCardInGoogleMaps(location.longitude, location.latitude)}>
+                                    🌍 Open location in Google Maps
+                                </button>
+                                <button type='button' className="mt-2 px-4 py-2 bg-blue-500 text-white rounded
+                                    hover:bg-blue-700"
                                     onClick={async () => await addNewTestHandler(location.id)}>
                                     Add new test
                                 </button>
-                                <button type='button' className="mt-2 px-4 py-2 bg-red-500 text-white rounded">
+                                <button type='button' className="mt-2 px-4 py-2 bg-red-200 text-white rounded">
                                     Delete location
                                 </button>
                             </div>
