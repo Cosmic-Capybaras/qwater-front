@@ -128,7 +128,7 @@ function LocationForm() {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
                             id="description"
                             name="description"
-                            placeholder="Wprowadź opis"
+                            placeholder="Enter description"
                             value={formData.description}
                             onChange={handleChange}
                         />
@@ -142,7 +142,7 @@ function LocationForm() {
                             id="latitude"
                             name="latitude"
                             type="text"
-                            placeholder="Wprowadź szerokość geograficzną"
+                            placeholder="Enter latitude"
                             value={formData.latitude}
                             onChange={handleChange}
                         />
@@ -156,7 +156,7 @@ function LocationForm() {
                             id="longitude"
                             name="longitude"
                             type="text"
-                            placeholder="Wprowadź długość geograficzną"
+                            placeholder="Enter longitude"
                             value={formData.longitude}
                             onChange={handleChange}
                         />
@@ -165,7 +165,7 @@ function LocationForm() {
                         type="button"
                         className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
                         onClick={handleToggleMapVisibility}>
-                        {isMapVisible ? 'Wprowadź ręcznie' : 'Użyj mapy'}
+                        {isMapVisible ? 'Enter manually' : 'Show MAP 🌍'}
                     </button>
                     {isMapVisible ? (
                         <MapComponent onMarkerDragEnd={handleMarkerDragEnd} />
